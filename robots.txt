@@ -1,0 +1,124 @@
+# ═══════════════════════════════════════════════════════
+# robots.txt — sujalwagholikar.info
+# Full Stack Developer Portfolio — Sujal Wagholikar
+# Last updated: 2026-07-04
+# ═══════════════════════════════════════════════════════
+
+# ── Allow all well-behaved crawlers ──────────────────────
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /sitemap.xml
+Allow: /sitemap-index.xml
+Allow: /manifest.json
+
+# Block access to auth/session-related query params
+Disallow: /*?action=reset*
+Disallow: /*?token=*
+Disallow: /*?s=*
+
+# Block common junk/bot paths
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /node_modules/
+
+# ── Google (all bots) ────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.gif$
+Allow: /*.svg$
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# ── Bing ─────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 3
+
+# ── DuckDuckGo ───────────────────────────────────────────
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# ── Yahoo ────────────────────────────────────────────────
+User-agent: Slurp
+Allow: /
+Crawl-delay: 3
+
+# ── Yandex ───────────────────────────────────────────────
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 5
+
+# ── Baidu ────────────────────────────────────────────────
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+# ── Social Media Crawlers (important for og:image) ───────
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# ── SEO & Monitoring Tools ───────────────────────────────
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ── Aggressive/Harmful Bots ──────────────────────────────
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# ── Sitemaps ─────────────────────────────────────────────
+Sitemap: https://www.sujalwagholikar.info/sitemap-index.xml
+Sitemap: https://www.sujalwagholikar.info/sitemap.xml
+
+# ── Host Directive (Yandex canonical domain) ─────────────
+Host: www.sujalwagholikar.info

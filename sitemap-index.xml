@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <!-- ═══════════════════════════════════════════════════════════════
-     SITEMAP INDEX — sujalwagholikar.info
+     SITEMAP INDEX — sujalwagholikar.online
      Sujal Wagholikar — Full Stack Developer Portfolio
      Last updated: 2026-07-04
 
      INSTRUCTIONS FOR GOOGLE SEARCH CONSOLE:
-     Submit this URL: https://www.sujalwagholikar.info/sitemap-index.xml
+     Submit this URL: https://www.sujalwagholikar.online/sitemap-index.xml
      Google will automatically discover all child sitemaps below.
 
      HOW TO ADD MORE SITEMAPS IN FUTURE:
@@ -27,7 +27,7 @@
        Update lastmod whenever page content changes.
   ──────────────────────────────────────────────────────────── -->
   <sitemap>
-    <loc>https://www.sujalwagholikar.info/sitemap.xml</loc>
+    <loc>https://www.sujalwagholikar.online/sitemap.xml</loc>
     <lastmod>2026-07-04</lastmod>
   </sitemap>
 
@@ -38,7 +38,7 @@
        Template path: /sitemap-images.xml
   ──────────────────────────────────────────────────────────── -->
   <sitemap>
-    <loc>https://www.sujalwagholikar.info/sitemap-images.xml</loc>
+    <loc>https://www.sujalwagholikar.online/sitemap-images.xml</loc>
     <lastmod>2026-07-04</lastmod>
   </sitemap>
 
@@ -50,7 +50,7 @@
 
        Example entry inside sitemap-blog.xml:
        <url>
-         <loc>https://www.sujalwagholikar.info/blog/building-pdf-editor/</loc>
+         <loc>https://www.sujalwagholikar.online /blog/building-pdf-editor/</loc>
          <lastmod>2026-07-10</lastmod>
          <changefreq>monthly</changefreq>
          <priority>0.8</priority>
@@ -65,7 +65,7 @@
        </url>
   ──────────────────────────────────────────────────────────── -->
   <sitemap>
-    <loc>https://www.sujalwagholikar.info/sitemap-blog.xml</loc>
+    <loc>https://www.sujalwagholikar.online/sitemap-blog.xml</loc>
     <lastmod>2026-07-04</lastmod>
   </sitemap>
 
@@ -79,7 +79,7 @@
        Template path: /sitemap-projects.xml
   ──────────────────────────────────────────────────────────── -->
   <sitemap>
-    <loc>https://www.sujalwagholikar.info/sitemap-projects.xml</loc>
+    <loc>https://www.sujalwagholikar.online/sitemap-projects.xml</loc>
     <lastmod>2026-07-04</lastmod>
   </sitemap>
 
@@ -91,7 +91,7 @@
   ──────────────────────────────────────────────────────────── -->
   <!--
   <sitemap>
-    <loc>https://www.sujalwagholikar.info/sitemap-videos.xml</loc>
+    <loc>https://www.sujalwagholikar.online/sitemap-videos.xml</loc>
     <lastmod>2026-07-04</lastmod>
   </sitemap>
   -->

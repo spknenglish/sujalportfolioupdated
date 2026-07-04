@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Sujal Wagholikar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --white: #ffffff;
+  --off-white: #f8f7f5;
+  --light-gray: #eeede9;
+  --mid-gray: #b0aea8;
+  --dark-gray: #6b6967;
+  --near-black: #1a1917;
+  --black: #0d0c0b;
+  --accent: #2a2a28;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --card-radius: 20px;
+  --shadow: 0 24px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--off-white);
+  color: var(--near-black);
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* ── Background ── */
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.bg-glow {
+  position: fixed; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(26,25,23,0.04) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 80% at 80% 30%, rgba(176,174,168,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Main Layout ── */
+.page-wrap {
+  position: relative; z-index: 1;
+  width: 100%;
+  max-width: 1160px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 0;
+  padding: 3rem 3rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── LEFT PANEL ── */
+.left-panel {
+  padding: 3rem 4rem 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+  text-decoration: none;
+}
+.logo-initials {
+  width: 44px; height: 44px;
+  background: var(--near-black);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.logo-name-text {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--near-black);
+  letter-spacing: 0.02em;
+}
+
+.left-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 1rem;
+}
+.left-heading {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 300;
+  color: var(--near-black);
+  line-height: 1.12;
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.01em;
+}
+.left-heading em {
+  font-style: italic;
+  color: var(--dark-gray);
+}
+.left-desc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--dark-gray);
+  max-width: 340px;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.left-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 3rem;
+}
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+.meta-icon {
+  width: 28px; height: 28px;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  background: var(--white);
+}
+.meta-row a {
+  color: var(--dark-gray);
+  text-decoration: none;
+  transition: color var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.meta-row a:hover {
+  color: var(--near-black);
+  border-color: var(--near-black);
+}
+
+.left-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.left-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 100px;
+  color: var(--mid-gray);
+  background: var(--white);
+  white-space: nowrap;
+}
+
+.left-back {
+  margin-top: 3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  text-decoration: none;
+  transition: color var(--transition), gap var(--transition);
+}
+.left-back:hover {
+  color: var(--near-black);
+  gap: 0.75rem;
+}
+.left-back .arrow-left { font-size: 0.85rem; }
+
+/* ── RIGHT PANEL — DUAL CARDS ── */
+.right-panel {
+  padding: 2rem 2rem 3rem 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.dual-card-wrapper {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+}
+
+/* Tab Switch */
+.card-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 14px;
+  padding: 5px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.card-tab {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.card-tab.active {
+  background: var(--near-black);
+  color: var(--white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Card */
+.auth-card {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  display: none;
+}
+.auth-card.active { display: block; }
+
+.card-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 0.55rem;
+}
+.card-title {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 400;
+  color: var(--near-black);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+.card-subtitle {
+  font-size: 0.82rem;
+  color: var(--mid-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Form Fields */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+.form-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.form-input {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--near-black);
+  background: var(--off-white);
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-input:focus {
+  border-color: var(--near-black);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(26,25,23,0.06);
+}
+.form-input::placeholder { color: var(--mid-gray); }
+.form-input.error-state {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
+}
+.form-input.success-state {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 3px rgba(39,174,96,0.08);
+}
+
+/* OTP Row */
+.otp-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+.otp-row .form-group { flex: 1; margin-bottom: 0; }
+.otp-send-btn {
+  flex-shrink: 0;
+  padding: 0.82rem 1.1rem;
+  border: 1px solid var(--near-black);
+  border-radius: 10px;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--near-black);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  height: 46px;
+}
+.otp-send-btn:hover {
+  background: var(--near-black);
+  color: var(--white);
+}
+.otp-send-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  background: var(--near-black);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.submit-btn:hover {
+  background: var(--black);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.submit-btn:active { transform: translateY(0); }
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.submit-btn .btn-arrow { font-size: 1rem; transition: transform var(--transition); }
+.submit-btn:hover .btn-arrow { transform: translateX(3px); }
+
+/* Spinner */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: none;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Alert / Feedback */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  display: none;
+}
+.alert.show { display: block; }
+.alert-error { background: #fef0ef; border: 1px solid #f5c6c2; color: #c0392b; }
+.alert-success { background: #effaf4; border: 1px solid #b7e4c7; color: #1e6e3f; }
+.alert-info { background: #f0f4ff; border: 1px solid #c3d0f5; color: #2c4fa0; }
+
+/* OTP timer */
+.otp-timer {
+  font-size: 0.72rem;
+  color: var(--mid-gray);
+  margin-top: 0.4rem;
+  display: none;
+}
+.otp-timer.show { display: block; }
+
+/* Divider */
+.card-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+.card-divider-line { flex: 1; height: 1px; background: var(--light-gray); }
+.card-divider-text { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); white-space: nowrap; }
+
+/* Social login hint */
+.social-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--mid-gray);
+}
+.social-hint a {
+  color: var(--dark-gray);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition);
+}
+.social-hint a:hover {
+  color: var(--near-black);
+  border-color: var(--near-black);
+}
+
+/* ── OTP Verification Step ── */
+.otp-step {
+  display: none;
+  text-align: center;
+  padding: 1rem 0;
+}
+.otp-step.active { display: block; }
+.otp-step-icon {
+  width: 56px; height: 56px;
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 0 auto 1.5rem;
+}
+.otp-step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--near-black);
+  margin-bottom: 0.5rem;
+}
+.otp-step-desc {
+  font-size: 0.82rem;
+  color: var(--mid-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.otp-step-desc strong { color: var(--dark-gray); }
+.otp-boxes {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.otp-box {
+  width: 48px; height: 56px;
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  background: var(--off-white);
+  font-family: var(--sans);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--near-black);
+  outline: none;
+  transition: all var(--transition);
+  -webkit-appearance: none;
+}
+.otp-box:focus {
+  border-color: var(--near-black);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(26,25,23,0.06);
+}
+.otp-box.filled {
+  border-color: var(--accent);
+  background: var(--white);
+}
+.otp-resend {
+  font-size: 0.75rem;
+  color: var(--mid-gray);
+  margin-bottom: 1.5rem;
+}
+.otp-resend button {
+  background: none; border: none;
+  color: var(--dark-gray);
+  font-size: 0.75rem;
+  font-family: var(--sans);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+.otp-resend button:disabled { opacity: 0.4; cursor: not-allowed; text-decoration: none; }
+.otp-back-link {
+  background: none; border: none;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.75rem;
+  transition: color var(--transition);
+  display: inline-block;
+}
+.otp-back-link:hover { color: var(--near-black); }
+
+/* ── Success State ── */
+.success-step {
+  display: none;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+.success-step.active { display: block; }
+.success-check {
+  width: 64px; height: 64px;
+  background: #effaf4;
+  border: 1px solid #b7e4c7;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1.5rem;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.success-title {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--near-black);
+  margin-bottom: 0.5rem;
+}
+.success-desc {
+  font-size: 0.82rem;
+  color: var(--mid-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.redirect-bar-wrap {
+  width: 100%;
+  height: 2px;
+  background: var(--light-gray);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.redirect-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--near-black);
+  border-radius: 100px;
+  transition: width linear;
+}
+.redirect-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+}
+
+/* ── Footer note ── */
+.card-footer-note {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--mid-gray);
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+.card-footer-note a {
+  color: var(--dark-gray);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition);
+}
+.card-footer-note a:hover {
+  color: var(--near-black);
+  border-color: var(--near-black);
+}
+
+/* ── Decorative corner marks on card ── */
+.auth-card { position: relative; }
+.corner-mark {
+  position: absolute;
+  width: 20px; height: 20px;
+  opacity: 0.18;
+}
+.corner-mark-tl { top: 14px; left: 14px; border-top: 1px solid var(--near-black); border-left: 1px solid var(--near-black); }
+.corner-mark-br { bottom: 14px; right: 14px; border-bottom: 1px solid var(--near-black); border-right: 1px solid var(--near-black); }
+
+/* ── Page transitions ── */
+.page-wrap { animation: fadeIn 0.5s ease both; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.auth-card { animation: cardIn 0.4s ease both; }
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .page-wrap {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.25rem 4rem;
+    align-items: flex-start;
+    min-height: unset;
+  }
+  .left-panel {
+    padding: 2rem 0 1.5rem;
+    display: none;
+  }
+  .right-panel {
+    padding: 1rem 0 3rem;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .dual-card-wrapper { max-width: 420px; width: 100%; margin: 0 auto; }
+}
+@media (max-width: 500px) {
+  .page-wrap { padding: 1rem 1rem 4rem; }
+  .auth-card { padding: 2rem 1.25rem; }
+  .otp-boxes { gap: 0.4rem; }
+  .otp-box { width: 40px; height: 50px; font-size: 1.1rem; }
+  .dual-card-wrapper { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<main class="page-wrap">
+
+  <!-- ── LEFT PANEL ── -->
+  <aside class="left-panel">
+    <a href="index.html" class="logo-mark">
+      <div class="logo-initials">SW</div>
+      <span class="logo-name-text">Sujal Wagholikar</span>
+    </a>
+
+    <span class="left-eyebrow">Full Stack Developer</span>
+    <h1 class="left-heading">Build.<br><em>Ship.</em><br>Repeat.</h1>
+    <p class="left-desc">Welcome back. Sign in to connect, collaborate, or leave a message. Access is secured with real-time email verification.</p>
+
+    <div class="left-meta">
+      <div class="meta-row">
+        <div class="meta-icon">✉</div>
+        <a href="mailto:sujalwagholikar25@gmail.com">sujalwagholikar25@gmail.com</a>
+      </div>
+      <div class="meta-row">
+        <div class="meta-icon">☎</div>
+        <a href="tel:+918275165077">+91 82751 65077</a>
+      </div>
+      <div class="meta-row">
+        <div class="meta-icon">⌖</div>
+        <span>Sagroli, Maharashtra, India</span>
+      </div>
+      <div class="meta-row">
+        <div class="meta-icon">⎋</div>
+        <a href="https://github.com/sujalwagholikrr" target="_blank">github.com/sujalwagholikrr</a>
+      </div>
+    </div>
+
+    <div class="left-tags">
+      <span class="left-tag">React</span>
+      <span class="left-tag">Node.js</span>
+      <span class="left-tag">MongoDB</span>
+      <span class="left-tag">Cloudflare</span>
+      <span class="left-tag">Python</span>
+      <span class="left-tag">Full Stack</span>
+    </div>
+
+    <a href="index.html#contact" class="left-back">
+      <span class="arrow-left">←</span> Back to Portfolio
+    </a>
+  </aside>
+
+  <!-- ── RIGHT PANEL ── -->
+  <section class="right-panel">
+    <div class="dual-card-wrapper">
+
+      <!-- Tab Switch -->
+      <div class="card-tabs" role="tablist">
+        <button class="card-tab active" id="tab-login" onclick="switchTab('login')" role="tab" aria-selected="true">Sign In</button>
+        <button class="card-tab" id="tab-register" onclick="switchTab('register')" role="tab" aria-selected="false">Register</button>
+      </div>
+
+      <!-- ── LOGIN CARD ── -->
+      <div class="auth-card active" id="card-login">
+        <div class="corner-mark corner-mark-tl"></div>
+        <div class="corner-mark corner-mark-br"></div>
+
+        <!-- Main Login Form -->
+        <div id="login-form-step">
+          <p class="card-eyebrow">Access Portal</p>
+          <h2 class="card-title">Welcome back.</h2>
+          <p class="card-subtitle">Enter your email — we'll send a one-time code to verify it's you.</p>
+
+          <div id="login-alert" class="alert"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="hello@example.com" autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-name">Your Name</label>
+            <input type="text" id="login-name" class="form-input" placeholder="John Doe" autocomplete="name">
+          </div>
+
+          <button class="submit-btn" id="login-send-btn" onclick="handleLoginRequest()">
+            <span id="login-btn-text">Send OTP Code</span>
+            <span class="spinner" id="login-spinner"></span>
+            <span class="btn-arrow" id="login-arrow">→</span>
+          </button>
+
+          <div class="card-footer-note">
+            By signing in, you agree to contact Sujal Wagholikar.<br>
+            <a href="index.html#contact">Return to contact section</a>
+          </div>
+        </div>
+
+        <!-- OTP Verification Step (Login) -->
+        <div class="otp-step" id="login-otp-step">
+          <div class="otp-step-icon">✉</div>
+          <h3 class="otp-step-title">Check your email.</h3>
+          <p class="otp-step-desc">A 6-digit code was sent to<br><strong id="login-otp-email-display"></strong></p>
+
+          <div id="login-otp-alert" class="alert"></div>
+
+          <div class="otp-boxes" id="login-otp-boxes">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+          </div>
+
+          <div class="otp-resend">
+            <span id="login-timer-text">Resend code in <strong id="login-countdown">60</strong>s</span>
+            <button id="login-resend-btn" onclick="resendOTP('login')" disabled style="display:none;">Resend Code</button>
+          </div>
+
+          <button class="submit-btn" id="login-verify-btn" onclick="verifyOTP('login')">
+            <span id="login-verify-text">Verify &amp; Sign In</span>
+            <span class="spinner" id="login-verify-spinner"></span>
+            <span class="btn-arrow">→</span>
+          </button>
+
+          <button class="otp-back-link" onclick="backToForm('login')">← Change Email</button>
+        </div>
+
+        <!-- Success Step (Login) -->
+        <div class="success-step" id="login-success-step">
+          <div class="success-check">✓</div>
+          <h3 class="success-title">Verified!</h3>
+          <p class="success-desc">Identity confirmed. Redirecting you to the portfolio now.</p>
+          <div class="redirect-bar-wrap">
+            <div class="redirect-bar" id="login-redirect-bar"></div>
+          </div>
+          <p class="redirect-label">Redirecting...</p>
+        </div>
+      </div>
+
+      <!-- ── REGISTER CARD ── -->
+      <div class="auth-card" id="card-register">
+        <div class="corner-mark corner-mark-tl"></div>
+        <div class="corner-mark corner-mark-br"></div>
+
+        <!-- Main Register Form -->
+        <div id="register-form-step">
+          <p class="card-eyebrow">New Connection</p>
+          <h2 class="card-title">Say hello.</h2>
+          <p class="card-subtitle">Register your details — Sujal will receive your info directly via email.</p>
+
+          <div id="register-alert" class="alert"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="form-input" placeholder="John Doe" autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="hello@example.com" autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-purpose">Purpose of Contact</label>
+            <input type="text" id="reg-purpose" class="form-input" placeholder="Freelance / Collaboration / General">
+          </div>
+
+          <button class="submit-btn" id="register-send-btn" onclick="handleRegisterRequest()">
+            <span id="register-btn-text">Send OTP &amp; Register</span>
+            <span class="spinner" id="register-spinner"></span>
+            <span class="btn-arrow" id="register-arrow">→</span>
+          </button>
+
+          <div class="card-footer-note">
+            Your info will be sent directly to Sujal's inbox.<br>
+            <a href="index.html#contact">Prefer direct email? →</a>
+          </div>
+        </div>
+
+        <!-- OTP Verification Step (Register) -->
+        <div class="otp-step" id="register-otp-step">
+          <div class="otp-step-icon">✉</div>
+          <h3 class="otp-step-title">Verify your email.</h3>
+          <p class="otp-step-desc">A 6-digit code was sent to<br><strong id="register-otp-email-display"></strong></p>
+
+          <div id="register-otp-alert" class="alert"></div>
+
+          <div class="otp-boxes" id="register-otp-boxes">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+            <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]">
+          </div>
+
+          <div class="otp-resend">
+            <span id="register-timer-text">Resend code in <strong id="register-countdown">60</strong>s</span>
+            <button id="register-resend-btn" onclick="resendOTP('register')" disabled style="display:none;">Resend Code</button>
+          </div>
+
+          <button class="submit-btn" id="register-verify-btn" onclick="verifyOTP('register')">
+            <span id="register-verify-text">Verify &amp; Submit</span>
+            <span class="spinner" id="register-verify-spinner"></span>
+            <span class="btn-arrow">→</span>
+          </button>
+
+          <button class="otp-back-link" onclick="backToForm('register')">← Change Email</button>
+        </div>
+
+        <!-- Success Step (Register) -->
+        <div class="success-step" id="register-success-step">
+          <div class="success-check">✓</div>
+          <h3 class="success-title">You're registered!</h3>
+          <p class="success-desc">Sujal has been notified. Redirecting you to the portfolio now.</p>
+          <div class="redirect-bar-wrap">
+            <div class="redirect-bar" id="register-redirect-bar"></div>
+          </div>
+          <p class="redirect-label">Redirecting...</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script>
+/* ============================================================
+   EMAILJS CONFIGURATION
+   ⚠️  REPLACE these with your actual EmailJS credentials:
+   1. Go to https://www.emailjs.com → Sign Up / Log In
+   2. Create a Service (Gmail recommended) → copy SERVICE_ID
+   3. Create two Email Templates:
+      - OTP Template: subject "Your OTP Code", body includes {{otp_code}}, {{user_name}}, {{user_email}}
+      - Notification Template: subject "New Contact via Portfolio", body includes {{user_name}}, {{user_email}}, {{purpose}}, {{type}}
+   4. Copy your PUBLIC_KEY from Account → API Keys
+   ============================================================ */
+const EMAILJS_PUBLIC_KEY   = 'dux6uI6U-GDpN0TlQ';   // ✅ Your EmailJS Public Key
+const EMAILJS_SERVICE_ID   = 'service_9ru8kop';      // TODO: EmailJS → Email Services → copy Service ID (e.g. 'service_xxxxxx')
+const EMAILJS_OTP_TEMPLATE = 'template_6r95ilp'; // TODO: EmailJS → Email Templates → OTP template ID (e.g. 'template_xxxxxx')
+const REDIRECT_URL         = 'index.html';           // Where to go after login
+
+// Your email (receives notification on register)
+const OWNER_EMAIL = 'indiavoting.x@gmail.com';
+
+// ── Init EmailJS ──
+(function() {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+})();
+
+// ── State ──
+const state = {
+  login:    { otp: null, email: '', name: '', expiry: null, timerInterval: null },
+  register: { otp: null, email: '', name: '', purpose: '', expiry: null, timerInterval: null }
+};
+
+// ── Utility: Generate 6-digit OTP ──
+function generateOTP() {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+}
+
+// ── Utility: Show alert ──
+function showAlert(id, type, msg) {
+  const el = document.getElementById(id);
+  el.className = 'alert show alert-' + type;
+  el.textContent = msg;
+}
+function hideAlert(id) {
+  const el = document.getElementById(id);
+  el.className = 'alert';
+  el.textContent = '';
+}
+
+// ── Utility: Set loading state ──
+function setLoading(prefix, loading) {
+  const btn    = document.getElementById(prefix + '-send-btn');
+  const txt    = document.getElementById(prefix + '-btn-text');
+  const spin   = document.getElementById(prefix + '-spinner');
+  const arrow  = document.getElementById(prefix + '-arrow');
+  if (!btn) return;
+  btn.disabled = loading;
+  spin.style.display  = loading ? 'block' : 'none';
+  arrow.style.display = loading ? 'none' : 'inline';
+  txt.textContent = loading ? 'Sending...' : (prefix === 'login' ? 'Send OTP Code' : 'Send OTP & Register');
+}
+function setVerifyLoading(prefix, loading) {
+  const btn  = document.getElementById(prefix + '-verify-btn');
+  const txt  = document.getElementById(prefix + '-verify-text');
+  const spin = document.getElementById(prefix + '-verify-spinner');
+  if (!btn) return;
+  btn.disabled = loading;
+  spin.style.display = loading ? 'block' : 'none';
+  txt.textContent = loading ? 'Verifying...' : (prefix === 'login' ? 'Verify & Sign In' : 'Verify & Submit');
+}
+
+// ── Tab Switch ──
+function switchTab(tab) {
+  ['login','register'].forEach(t => {
+    document.getElementById('card-' + t).classList.toggle('active', t === tab);
+    document.getElementById('tab-'  + t).classList.toggle('active', t === tab);
+    document.getElementById('tab-'  + t).setAttribute('aria-selected', t === tab);
+  });
+}
+
+// ── Start countdown timer ──
+function startTimer(prefix) {
+  let seconds = 60;
+  const countdown = document.getElementById(prefix + '-countdown');
+  const timerText = document.getElementById(prefix + '-timer-text');
+  const resendBtn = document.getElementById(prefix + '-resend-btn');
+
+  clearInterval(state[prefix].timerInterval);
+  timerText.style.display  = 'inline';
+  resendBtn.style.display  = 'none';
+  resendBtn.disabled       = true;
+  countdown.textContent    = seconds;
+
+  state[prefix].timerInterval = setInterval(() => {
+    seconds--;
+    countdown.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(state[prefix].timerInterval);
+      timerText.style.display  = 'none';
+      resendBtn.style.display  = 'inline';
+      resendBtn.disabled       = false;
+    }
+  }, 1000);
+}
+
+// ── OTP Box keyboard nav ──
+function initOTPBoxes(containerId) {
+  const boxes = document.getElementById(containerId).querySelectorAll('.otp-box');
+  boxes.forEach((box, i) => {
+    box.addEventListener('input', e => {
+      const val = e.target.value.replace(/\D/g,'');
+      box.value = val ? val[0] : '';
+      box.classList.toggle('filled', !!box.value);
+      if (val && i < boxes.length - 1) boxes[i+1].focus();
+    });
+    box.addEventListener('keydown', e => {
+      if (e.key === 'Backspace' && !box.value && i > 0) boxes[i-1].focus();
+    });
+    box.addEventListener('paste', e => {
+      e.preventDefault();
+      const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'');
+      boxes.forEach((b, j) => {
+        b.value = pasted[j] || '';
+        b.classList.toggle('filled', !!b.value);
+      });
+      boxes[Math.min(pasted.length, boxes.length-1)].focus();
+    });
+  });
+}
+initOTPBoxes('login-otp-boxes');
+initOTPBoxes('register-otp-boxes');
+
+// ── Get OTP from boxes ──
+function getOTPValue(containerId) {
+  return Array.from(document.getElementById(containerId).querySelectorAll('.otp-box'))
+    .map(b => b.value).join('');
+}
+function clearOTPBoxes(containerId) {
+  document.getElementById(containerId).querySelectorAll('.otp-box').forEach(b => {
+    b.value = ''; b.classList.remove('filled');
+  });
+}
+
+// ── Send OTP via EmailJS ──
+async function sendOTPEmail(email, name, otp) {
+  return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_OTP_TEMPLATE, {
+    to_email:   email,
+    to_name:    name || email,
+    user_email: email,
+    user_name:  name || 'Visitor',
+    otp_code:   otp,
+    expiry_min: '10'
+  });
+}
+
+// ── Send notification to owner via EmailJS ──
+async function sendOwnerNotification(name, email, purpose, type) {
+  return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_NOTIFY_TPL, {
+    to_email:   OWNER_EMAIL,
+    user_name:  name,
+    user_email: email,
+    purpose:    purpose || 'Not specified',
+    type:       type,
+    timestamp:  new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+  });
+}
+
+// ── Validate email format ──
+function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+// ─────────────────────────────────────────────
+//  HANDLE LOGIN REQUEST
+// ─────────────────────────────────────────────
+async function handleLoginRequest() {
+  const email = document.getElementById('login-email').value.trim();
+  const name  = document.getElementById('login-name').value.trim();
+  hideAlert('login-alert');
+
+  if (!email || !isValidEmail(email)) {
+    showAlert('login-alert', 'error', '⚠ Please enter a valid email address.');
+    document.getElementById('login-email').focus();
+    return;
+  }
+  if (!name) {
+    showAlert('login-alert', 'error', '⚠ Please enter your name.');
+    document.getElementById('login-name').focus();
+    return;
+  }
+
+  setLoading('login', true);
+
+  const otp = generateOTP();
+  state.login.otp    = otp;
+  state.login.email  = email;
+  state.login.name   = name;
+  state.login.expiry = Date.now() + 10 * 60 * 1000; // 10 min
+
+  try {
+    await sendOTPEmail(email, name, otp);
+    setLoading('login', false);
+    document.getElementById('login-otp-email-display').textContent = email;
+    document.getElementById('login-form-step').style.display = 'none';
+    document.getElementById('login-otp-step').classList.add('active');
+    clearOTPBoxes('login-otp-boxes');
+    startTimer('login');
+    document.getElementById('login-otp-boxes').querySelector('.otp-box').focus();
+  } catch (err) {
+    setLoading('login', false);
+    showAlert('login-alert', 'error', '⚠ Could not send OTP. Check your EmailJS setup and try again.');
+    console.error('EmailJS error:', err);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  HANDLE REGISTER REQUEST
+// ─────────────────────────────────────────────
+async function handleRegisterRequest() {
+  const name    = document.getElementById('reg-name').value.trim();
+  const email   = document.getElementById('reg-email').value.trim();
+  const purpose = document.getElementById('reg-purpose').value.trim();
+  hideAlert('register-alert');
+
+  if (!name) {
+    showAlert('register-alert', 'error', '⚠ Please enter your full name.');
+    document.getElementById('reg-name').focus();
+    return;
+  }
+  if (!email || !isValidEmail(email)) {
+    showAlert('register-alert', 'error', '⚠ Please enter a valid email address.');
+    document.getElementById('reg-email').focus();
+    return;
+  }
+
+  setLoading('register', true);
+
+  const otp = generateOTP();
+  state.register.otp     = otp;
+  state.register.email   = email;
+  state.register.name    = name;
+  state.register.purpose = purpose;
+  state.register.expiry  = Date.now() + 10 * 60 * 1000;
+
+  try {
+    await sendOTPEmail(email, name, otp);
+    setLoading('register', false);
+    document.getElementById('register-otp-email-display').textContent = email;
+    document.getElementById('register-form-step').style.display = 'none';
+    document.getElementById('register-otp-step').classList.add('active');
+    clearOTPBoxes('register-otp-boxes');
+    startTimer('register');
+    document.getElementById('register-otp-boxes').querySelector('.otp-box').focus();
+  } catch (err) {
+    setLoading('register', false);
+    showAlert('register-alert', 'error', '⚠ Could not send OTP. Check your EmailJS setup and try again.');
+    console.error('EmailJS error:', err);
+  }
+}
+
+// ─────────────────────────────────────────────
+//  VERIFY OTP
+// ─────────────────────────────────────────────
+async function verifyOTP(prefix) {
+  const entered = getOTPValue(prefix + '-otp-boxes');
+  hideAlert(prefix + '-otp-alert');
+
+  if (entered.length < 6) {
+    showAlert(prefix + '-otp-alert', 'error', '⚠ Enter the complete 6-digit code.');
+    return;
+  }
+
+  if (Date.now() > state[prefix].expiry) {
+    showAlert(prefix + '-otp-alert', 'error', '⚠ OTP has expired. Please request a new one.');
+    return;
+  }
+
+  if (entered !== state[prefix].otp) {
+    showAlert(prefix + '-otp-alert', 'error', '⚠ Incorrect code. Please check and try again.');
+    document.getElementById(prefix + '-otp-boxes').querySelectorAll('.otp-box').forEach(b => {
+      b.classList.add('error-state');
+      setTimeout(() => b.classList.remove('error-state'), 1200);
+    });
+    return;
+  }
+
+  // ── OTP correct ──
+  setVerifyLoading(prefix, true);
+  clearInterval(state[prefix].timerInterval);
+
+  try {
+    // Send owner notification
+    await sendOwnerNotification(
+      state[prefix].name,
+      state[prefix].email,
+      state[prefix].purpose || '',
+      prefix === 'login' ? 'Sign In' : 'Registration'
+    );
+  } catch(e) {
+    // Notification failure is non-blocking; user still proceeds
+    console.warn('Owner notification failed:', e);
+  }
+
+  setVerifyLoading(prefix, false);
+
+  // Show success
+  document.getElementById(prefix + '-otp-step').classList.remove('active');
+  document.getElementById(prefix + '-success-step').classList.add('active');
+  startRedirect(prefix);
+}
+
+// ── Resend OTP ──
+async function resendOTP(prefix) {
+  hideAlert(prefix + '-otp-alert');
+  clearOTPBoxes(prefix + '-otp-boxes');
+
+  const otp = generateOTP();
+  state[prefix].otp    = otp;
+  state[prefix].expiry = Date.now() + 10 * 60 * 1000;
+
+  const resendBtn = document.getElementById(prefix + '-resend-btn');
+  resendBtn.disabled   = true;
+  resendBtn.textContent = 'Sending...';
+
+  try {
+    await sendOTPEmail(state[prefix].email, state[prefix].name, otp);
+    showAlert(prefix + '-otp-alert', 'success', '✓ New OTP sent to ' + state[prefix].email);
+    startTimer(prefix);
+    resendBtn.textContent = 'Resend Code';
+  } catch(e) {
+    resendBtn.disabled   = false;
+    resendBtn.textContent = 'Resend Code';
+    showAlert(prefix + '-otp-alert', 'error', '⚠ Failed to resend. Please try again.');
+  }
+}
+
+// ── Back to form ──
+function backToForm(prefix) {
+  clearInterval(state[prefix].timerInterval);
+  document.getElementById(prefix + '-otp-step').classList.remove('active');
+  document.getElementById(prefix + '-form-step').style.display = 'block';
+  hideAlert(prefix + '-otp-alert');
+}
+
+// ── Redirect with progress bar ──
+function startRedirect(prefix) {
+  const bar = document.getElementById(prefix + '-redirect-bar');
+  const duration = 2500; // ms
+  bar.style.transition = 'width ' + duration + 'ms linear';
+  // Trigger reflow
+  bar.getBoundingClientRect();
+  bar.style.width = '100%';
+  setTimeout(() => {
+    window.location.href = REDIRECT_URL;
+  }, duration + 100);
+}
+
+// ── Enter key support ──
+document.getElementById('login-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleLoginRequest(); });
+document.getElementById('login-name').addEventListener('keydown', e => { if (e.key === 'Enter') handleLoginRequest(); });
+document.getElementById('reg-name').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegisterRequest(); });
+document.getElementById('reg-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegisterRequest(); });
+document.getElementById('reg-purpose').addEventListener('keydown', e => { if (e.key === 'Enter') handleRegisterRequest(); });
+</script>
+</body>
+</html>

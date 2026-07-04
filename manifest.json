@@ -4,7 +4,7 @@
   "description": "Portfolio of Sujal Wagholikar — self-taught full-stack developer from Maharashtra, India. React, Node.js, MongoDB, Cloudflare Workers. Available for freelance.",
   "start_url": "/",
   "scope": "/",
-  "id": "https://www.sujalwagholikar.info/",
+  "id": "https://www.sujalwagholikar.online/",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone", "browser"],
   "orientation": "portrait-primary",
@@ -160,7 +160,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://www.sujalwagholikar.info/"
+      "url": "https://www.sujalwagholikar.online/"
     }
   ],
   "prefer_related_applications": false,

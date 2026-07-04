@@ -1,0 +1,182 @@
+{
+  "name": "Sujal Wagholikar — Full Stack Developer",
+  "short_name": "Sujal Dev",
+  "description": "Portfolio of Sujal Wagholikar — self-taught full-stack developer from Maharashtra, India. React, Node.js, MongoDB, Cloudflare Workers. Available for freelance.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "https://www.sujalwagholikar.info/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#0d0c0b",
+  "theme_color": "#1a1917",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": [
+    "portfolio",
+    "technology",
+    "developer",
+    "freelance",
+    "productivity"
+  ],
+  "keywords": [
+    "full stack developer",
+    "React developer",
+    "Node.js",
+    "MongoDB",
+    "freelance developer India",
+    "Maharashtra developer",
+    "Sujal Wagholikar"
+  ],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "48x48",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "72x72",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "96x96",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "128x128",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "144x144",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "152x152",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "256x256",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "384x384",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Sujal Wagholikar Portfolio — Desktop View"
+    },
+    {
+      "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+      "sizes": "390x844",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Sujal Wagholikar Portfolio — Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "Jump directly to Sujal's portfolio projects",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact Sujal",
+      "short_name": "Contact",
+      "description": "Get in touch with Sujal Wagholikar",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "About Sujal",
+      "short_name": "About",
+      "description": "Learn about Sujal's journey and skills",
+      "url": "/#about",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Read Blog",
+      "short_name": "Blog",
+      "description": "Read Sujal's articles on full-stack development",
+      "url": "/#blog",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/tRtwtZM6/sujal-png.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://www.sujalwagholikar.info/"
+    }
+  ],
+  "prefer_related_applications": false,
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/?mailto=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/#contact",
+    "method": "GET",
+    "params": {
+      "title": "subject",
+      "text": "message",
+      "url": "url"
+    }
+  }
+}

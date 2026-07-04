@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ═══════════════════════════════════════════════════════════════
+     IMAGE SITEMAP — sujalwagholikar.info
+     Sujal Wagholikar — Full Stack Developer Portfolio
+     Last updated: 2026-07-04
+     Spec: https://www.google.com/schemas/sitemap-image/1.1
+═══════════════════════════════════════════════════════════════ -->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.google.com/schemas/sitemap-image/1.1
+    http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- ── Homepage — Profile & Identity Images ── -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/</loc>
+    <image:image>
+      <image:loc>https://i.postimg.cc/tRtwtZM6/sujal-png.jpg</image:loc>
+      <image:title>Sujal Wagholikar — Full Stack Developer from Maharashtra, India</image:title>
+      <image:caption>Portrait of Sujal Wagholikar, a self-taught full-stack developer specializing in React, Node.js, MongoDB, and Cloudflare Workers, based in Sagroli, Maharashtra, India.</image:caption>
+      <image:geo_location>Sagroli, Maharashtra, India</image:geo_location>
+      <image:license>https://www.sujalwagholikar.info/</image:license>
+    </image:image>
+  </url>
+
+  <!-- ── Projects Section — Project Screenshots ── -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#projects</loc>
+
+    <!-- Project 1: All-in-One Toolkit -->
+    <image:image>
+      <image:loc>https://i.postimg.cc/HYdFF9ft/file-000000001520720bacb93b135025bba3.png</image:loc>
+      <image:title>All-in-One PDF and Image Toolkit — Browser-based Tool by Sujal Wagholikar</image:title>
+      <image:caption>Screenshot of the All-in-One Toolkit web app — a browser-based PDF editor, compressor, and image converter with built-in OCR. Built by Sujal Wagholikar using full-stack JavaScript.</image:caption>
+      <image:geo_location>Maharashtra, India</image:geo_location>
+      <image:license>https://www.sujalwagholikar.info/</image:license>
+    </image:image>
+
+    <!-- Project 2: All India Voting Portal -->
+    <image:image>
+      <image:loc>https://i.postimg.cc/kGBd6fMr/Chat-GPT-Image-Jun-25-2026-05-10-55-PM.png</image:loc>
+      <image:title>All India Voting Portal — National Civic Tech Platform by Sujal Wagholikar</image:title>
+      <image:caption>Screenshot of the All India Voting Portal, a national-scale civic technology platform where every Indian can submit opinions on current issues. Built on Cloudflare Workers for edge performance by Sujal Wagholikar.</image:caption>
+      <image:geo_location>India</image:geo_location>
+      <image:license>https://www.sujalwagholikar.info/</image:license>
+    </image:image>
+
+    <!-- Project 3: Mock Test Simulator -->
+    <image:image>
+      <image:loc>https://i.postimg.cc/m2PfZ3NT/Chat-GPT-Image-Jun-29-2026-02-19-23-PM.png</image:loc>
+      <image:title>Mock Test Simulator for English Learners — Ed-Tech App by Sujal Wagholikar</image:title>
+      <image:caption>Screenshot of the Mock Test Simulator — a professional exam simulator for English learners with timed tests, instant scoring, question banks, and performance analytics. Built with JavaScript by Sujal Wagholikar.</image:caption>
+      <image:geo_location>Maharashtra, India</image:geo_location>
+      <image:license>https://www.sujalwagholikar.info/</image:license>
+    </image:image>
+
+  </url>
+
+</urlset>

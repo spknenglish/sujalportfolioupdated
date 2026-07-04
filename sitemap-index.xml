@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<!-- ═══════════════════════════════════════════════════════════════
+     SITEMAP INDEX — sujalwagholikar.info
+     Sujal Wagholikar — Full Stack Developer Portfolio
+     Last updated: 2026-07-04
+
+     INSTRUCTIONS FOR GOOGLE SEARCH CONSOLE:
+     Submit this URL: https://www.sujalwagholikar.info/sitemap-index.xml
+     Google will automatically discover all child sitemaps below.
+
+     HOW TO ADD MORE SITEMAPS IN FUTURE:
+     1. Create the new sitemap file (e.g. sitemap-blog.xml)
+     2. Add a new <sitemap> entry below pointing to it
+     3. Update the <lastmod> of this index file to today's date
+     4. Re-submit in Google Search Console if needed
+═══════════════════════════════════════════════════════════════ -->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="
+                http://www.sitemaps.org/schemas/sitemap/0.9
+                http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+
+  <!-- ── 1. MAIN PAGES SITEMAP ──────────────────────────────────
+       Contains: Homepage, About, Projects, Experience,
+                 Skills, Blog, Contact sections.
+       Update lastmod whenever page content changes.
+  ──────────────────────────────────────────────────────────── -->
+  <sitemap>
+    <loc>https://www.sujalwagholikar.info/sitemap.xml</loc>
+    <lastmod>2026-07-04</lastmod>
+  </sitemap>
+
+  <!-- ── 2. IMAGES SITEMAP ──────────────────────────────────────
+       Contains: All portfolio images, project screenshots,
+                 profile photos, and Open Graph images.
+       Create this file when you have 10+ images.
+       Template path: /sitemap-images.xml
+  ──────────────────────────────────────────────────────────── -->
+  <sitemap>
+    <loc>https://www.sujalwagholikar.info/sitemap-images.xml</loc>
+    <lastmod>2026-07-04</lastmod>
+  </sitemap>
+
+  <!-- ── 3. BLOG SITEMAP ────────────────────────────────────────
+       ACTIVATE THIS when you publish your first blog post.
+       Each article gets its own <url> entry in sitemap-blog.xml
+       with its own title, description, and publish date.
+       Template path: /sitemap-blog.xml
+
+       Example entry inside sitemap-blog.xml:
+       <url>
+         <loc>https://www.sujalwagholikar.info/blog/building-pdf-editor/</loc>
+         <lastmod>2026-07-10</lastmod>
+         <changefreq>monthly</changefreq>
+         <priority>0.8</priority>
+         <news:news>
+           <news:publication>
+             <news:name>Sujal Wagholikar Blog</news:name>
+             <news:language>en</news:language>
+           </news:publication>
+           <news:publication_date>2026-07-10</news:publication_date>
+           <news:title>Building a PDF Editor That Actually Works in the Browser</news:title>
+         </news:news>
+       </url>
+  ──────────────────────────────────────────────────────────── -->
+  <sitemap>
+    <loc>https://www.sujalwagholikar.info/sitemap-blog.xml</loc>
+    <lastmod>2026-07-04</lastmod>
+  </sitemap>
+
+  <!-- ── 4. PROJECTS SITEMAP ────────────────────────────────────
+       ACTIVATE THIS when each project gets its own page.
+       Example: /projects/all-india-voting-portal/
+                /projects/mock-test-simulator/
+                /projects/idesign-tools/
+       These dedicated pages massively increase crawl depth
+       and allow unique titles + descriptions per project.
+       Template path: /sitemap-projects.xml
+  ──────────────────────────────────────────────────────────── -->
+  <sitemap>
+    <loc>https://www.sujalwagholikar.info/sitemap-projects.xml</loc>
+    <lastmod>2026-07-04</lastmod>
+  </sitemap>
+
+  <!-- ── 5. VIDEO SITEMAP (FUTURE) ─────────────────────────────
+       ACTIVATE IF you embed demo videos or YouTube embeds
+       for any of your projects. Video schema can appear as
+       rich results in Google with thumbnail + duration.
+       Template path: /sitemap-videos.xml
+  ──────────────────────────────────────────────────────────── -->
+  <!--
+  <sitemap>
+    <loc>https://www.sujalwagholikar.info/sitemap-videos.xml</loc>
+    <lastmod>2026-07-04</lastmod>
+  </sitemap>
+  -->
+
+</sitemapindex>

@@ -117,8 +117,8 @@ User-agent: PetalBot
 Disallow: /
 
 # ── Sitemaps ─────────────────────────────────────────────
-Sitemap: https://www.sujalwagholikar.info/sitemap-index.xml
-Sitemap: https://www.sujalwagholikar.info/sitemap.xml
+Sitemap: https://www.sujalwagholikar.online/sitemap-index.xml
+Sitemap: https://www.sujalwagholikar.online/sitemap.xml
 
 # ── Host Directive (Yandex canonical domain) ─────────────
-Host: www.sujalwagholikar.info
+Host: www.sujalwagholikar.online

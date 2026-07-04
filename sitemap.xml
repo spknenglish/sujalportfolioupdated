@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.google.com/schemas/sitemap-image/1.1
+    http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HOMEPAGE (Highest Priority)
+       Last modified: 2026-07-04
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.sujalwagholikar.info/"/>
+    <image:image>
+      <image:loc>https://i.postimg.cc/tRtwtZM6/sujal-png.jpg</image:loc>
+      <image:caption>Sujal Wagholikar — Full Stack Developer from Maharashtra, India</image:caption>
+      <image:title>Sujal Wagholikar Portfolio</image:title>
+      <image:geo_location>Sagroli, Maharashtra, India</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#about</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/#about"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECTS SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#projects</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/#projects"/>
+    <image:image>
+      <image:loc>https://i.postimg.cc/HYdFF9ft/file-000000001520720bacb93b135025bba3.png</image:loc>
+      <image:caption>All-in-One PDF and Image Toolkit — Browser-based tool with OCR by Sujal Wagholikar</image:caption>
+      <image:title>All-in-One Toolkit Project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/kGBd6fMr/Chat-GPT-Image-Jun-25-2026-05-10-55-PM.png</image:loc>
+      <image:caption>All India Voting Portal — Civic tech platform built on Cloudflare Workers by Sujal Wagholikar</image:caption>
+      <image:title>All India Voting Portal Project</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.postimg.cc/m2PfZ3NT/Chat-GPT-Image-Jun-29-2026-02-19-23-PM.png</image:loc>
+      <image:caption>Mock Test Simulator for English Learners — Timed exams and performance analytics by Sujal Wagholikar</image:caption>
+      <image:title>Mock Test Simulator Project</image:title>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       EXPERIENCE / EDUCATION SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#experience</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/#experience"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SKILLS / MY ADVANTAGE SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#advantage</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/#advantage"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BLOG SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#blog</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/#blog"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.sujalwagholikar.info/#contact</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.sujalwagholikar.info/#contact"/>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════
+       EXTERNAL PROJECT PAGES (Canonical References)
+       Note: These are external projects owned by Sujal.
+       Listed here to aid crawlers in discovering related work.
+  ═══════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://sujalwagholikar.info</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vote.indiavoting-x.workers.dev</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://spknenglish.github.io/test</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+</urlset>
